@@ -1,3 +1,15 @@
+export const fetchProducts = (payload) => {
+  return {
+    type: "FETCH_PRODUCTS",
+    payload,
+  };
+};
+export const setLoading = (payload) => {
+  return {
+    type: "SET_LOADING",
+    payload,
+  };
+};
 export const handleChange = (payload) => {
   return {
     type: "HANDLE_CHANGE",

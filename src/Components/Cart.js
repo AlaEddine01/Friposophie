@@ -20,15 +20,15 @@ function Cart(props) {
         <Modal.Title>Your Cart</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {props.ListItems.map(
+        {props.ListItems?.map(
           (element) =>
             element.isInCart && (
               <div className="container" key={element.id}>
                 <div className="row" style={{ width: "100%" }}>
                   <div className="colimg">
-                    <img src={element.image} width="80px" height="80px" alt={element.name} />
+                    <img src={element.image} width="80px" height="80px" alt={element.title} />
                   </div>
-                  <div className="colname">{element.name}</div>
+                  <div className="colname">{element.title}</div>
                   <div className="coldesc"></div>
                   <div
                     className="colquantity"

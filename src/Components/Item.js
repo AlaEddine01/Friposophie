@@ -1,17 +1,17 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { connect } from "react-redux";
-import { addToCart, deletefromCart } from "../Redux/action";
+import { addToCart, deletefromCart, fetchProducts } from "../Redux/action";
 import "./Item.css";
 import { Link } from "react-router-dom";
 
 function Item(props) {
-  const filterdItems = props.ListItems.filter((item) =>
-    item.name.toUpperCase().includes(props.input.toUpperCase())
+  const filterdItems = props.ListItems?.filter((item) =>
+    item.title.toUpperCase().includes(props.input.toUpperCase())
   );
   return (
     <div className="items-container">
-      {filterdItems.map((element) => (
+      {filterdItems?.map((element) => (
         <Card
           key={element.id}
           style={{
@@ -21,11 +21,16 @@ function Item(props) {
             textAlign: "center",
           }}
         >
-          <Link to={`/description/${element.name}`}>
-            <Card.Img height="300px" width="285px" variant="top" src={element.image} />
+          <Link to={`/description/${element.title}`}>
+            <Card.Img
+              height="300px"
+              width="285px"
+              variant="top"
+              src={element.image}
+            />
           </Link>
           <Card.Body>
-            <Card.Title>{element.name.slice(0, 20)}</Card.Title>
+            <Card.Title>{element.title.slice(0, 20)}...</Card.Title>
             <Card.Text>{element.description.slice(0, 30)}</Card.Text>
             <Card.Text></Card.Text>
             <Button
@@ -53,6 +58,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (payload) => dispatch(addToCart(payload)),
     deletefromCart: (payload) => dispatch(deletefromCart(payload)),
+    fetchProducts: (payload) => dispatch(fetchProducts(payload)),
   };
 };
 

@@ -8,15 +8,15 @@ function Description(props) {
     <div>
       {props.ListItems.map(
         (element) =>
-          element.name === props.match.params.id && (
+          element.title === props.match.params.id && (
             <Card className="text-center">
-              <Card.Header as="h2">{element.name}</Card.Header>
+              <Card.Header as="h2">{element.title}</Card.Header>
               <Card.Body>
                 <img
                   width="400px"
                   height="400px"
                   src={element.image}
-                  alt={element.name}
+                  alt={element.title}
                 />
                 <br />
                 <br />

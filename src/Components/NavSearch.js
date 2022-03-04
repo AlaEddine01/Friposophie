@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Cart from "./Cart";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import friposofie from "../Assets/friposofie.png";
 
 function NavSearch(props) {
   return (
@@ -14,9 +15,13 @@ function NavSearch(props) {
         <Navbar.Brand>
           <Link to="/">
             <img
-              src="https://scontent.ftun15-1.fna.fbcdn.net/v/t1.6435-9/215541770_105743305126524_8524907952426378963_n.png?_nc_cat=107&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=tnUV3HaF2AYAX-GpQRL&tn=d364xymUXbaKJ-Ij&_nc_ht=scontent.ftun15-1.fna&oh=3b450f0c8feafa08c21cbf862bdc1a6d&oe=60F99C0D"
-              style={{ width: "2.750rem", height: "2.750rem",borderRadius:"50%" }}
+              src={friposofie}
               alt="brandIcon"
+              style={{
+                width: "2.750rem",
+                height: "2.750rem",
+                borderRadius: "50%",
+              }}
             />
           </Link>
         </Navbar.Brand>
@@ -40,19 +45,25 @@ function NavSearch(props) {
         <div
           style={{
             height: "1.750rem",
-            width: "1.750rem",
+            width: "4rem",
             textAlign: "center",
             cursor: "pointer",
+            position: "relative",
           }}
           onClick={() => props.openCartModal(props.isOpenModal)}
         >
           <span
             style={{
-              color: "#343a40",
+              // color: rgb(52, 58, 64);
               position: "absolute",
-              height: "1.750rem",
-              width: "1.750rem",
+              height: "1.75rem",
+              width: "1.75rem",
               zIndex: 1,
+              backgroundColor: "green",
+              borderRadius: "50%",
+              right: "-3px",
+              color: "white",
+              top: "-10px",
             }}
           >
             {props.cartLength}
