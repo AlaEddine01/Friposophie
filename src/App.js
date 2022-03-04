@@ -18,7 +18,7 @@ function App(props) {
         .catch((err) => console.log(err));
     };
     fetch2Products();
-    // props.fetchProducts(products);
+    // eslint-disable-next-line
   }, []);
 
   return (
