@@ -11,7 +11,7 @@ import friposofie from "../Assets/friposofie.png";
 function NavSearch(props) {
   return (
     <div className="navserachbar">
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" style={{ height: "10vh" }}>
         <Navbar.Brand>
           <Link to="/">
             <img

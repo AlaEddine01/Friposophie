@@ -1,7 +1,6 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 function Description(props) {
   return (
@@ -9,7 +8,7 @@ function Description(props) {
       style={{
         height: "90vh",
         marginTop: "8vh",
-        padding: "0",
+        // padding: "0",
       }}
     >
       {props.ListItems.map(
@@ -19,49 +18,55 @@ function Description(props) {
               className="text-center"
               style={{ padding: "0 10vh", backgroundColor: "antiqueWhite" }}
             >
-              <Card.Header as="h2">{element.title}</Card.Header>
-              <Card.Body style={{ height: "84vh" }}>
+              <Card.Body
+                style={{
+                  height: "84vh",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  padding: "25px",
+                }}
+              >
                 <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
+                  style={{ position: "relative", flex: "5", height: "80vh" }}
                 >
                   <img
-                    width="400px"
-                    height="400px"
+                    width="500px"
+                    height="600px"
                     src={element.image}
                     alt={element.title}
                     style={{ borderRadius: "10%", border: "1px solid gray" }}
                   />
-
-                  <Card.Text
+                  <span
                     style={{
-                      marginTop: "50px",
+                      marginTop: "20px",
                       fontSize: "30px",
                       fontWeight: "bold",
                       marginLeft: "25px",
                       backgroundColor: "#11e95b",
                       padding: "10px",
-                      color: "white",
+                      color: "black",
                       borderRadius: "20px",
-                      border: "1px solid",
+                      border: "1px solid white",
                       height: "fit-content",
+                      textAlign: "center",
+                      position: "absolute",
+                      top: 0,
+                      right: 0,
                     }}
                   >
-                    {element.price} USD
+                    {Number.parseFloat(element.price).toFixed(3)} USD
+                  </span>
+                </div>
+                <div style={{ flex: "7" }}>
+                  <Card.Header as="h2">{element.title}</Card.Header>
+
+                  <br />
+                  <Card.Text style={{ fontSize: "20px", padding: "25px" }}>
+                    {element.description}
                   </Card.Text>
                 </div>
-                <br />
-                <br />
-                <Card.Text style={{ marginTop: "50px", fontSize: "20px" }}>
-                  {element.description}
-                </Card.Text>
-                <Link to="/">
-                  <Button variant="primary">Go Back</Button>
-                </Link>
               </Card.Body>
-              {/* <Card.Footer className="text-muted"></Card.Footer> */}
             </Card>
           )
       )}
