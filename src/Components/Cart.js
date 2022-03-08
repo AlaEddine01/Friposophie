@@ -26,7 +26,12 @@ function Cart(props) {
               <div className="container" key={element.id}>
                 <div className="row" style={{ width: "100%" }}>
                   <div className="colimg">
-                    <img src={element.image} width="80px" height="80px" alt={element.title} />
+                    <img
+                      src={element.image}
+                      width="80px"
+                      height="80px"
+                      alt={element.title}
+                    />
                   </div>
                   <div className="colname">{element.title}</div>
                   <div className="coldesc"></div>
@@ -36,14 +41,19 @@ function Cart(props) {
                   >
                     <FaMinusCircle
                       onClick={() =>
-                        element.quantity > 1 && props.decrementQuantity(element.id)
+                        element.quantity > 1 &&
+                        props.decrementQuantity(element.id)
                       }
                     />
                     <span className="quantity">{element.quantity}</span>
-                    <FaPlusCircle onClick={() => props.incrementQuantity(element.id)} />
+                    <FaPlusCircle
+                      onClick={() => props.incrementQuantity(element.id)}
+                    />
                   </div>
                   <div className="colprice"> {element.price} </div>
-                  <div className="coltotalprice">{element.price * element.quantity}</div>
+                  <div className="coltotalprice">
+                    {element.price * element.quantity}
+                  </div>
                   <div className="coltrash">
                     {" "}
                     <FaTrash
@@ -66,7 +76,7 @@ function Cart(props) {
         <Button variant="secondary" onClick={props.openCartModal}>
           Close
         </Button>
-        <span className="total">Total: {x}</span>
+        <span className="total">Total: {Number.parseFloat(x).toFixed(3)}</span>
         <Button variant="primary">Buy</Button>
       </div>
     </Modal>

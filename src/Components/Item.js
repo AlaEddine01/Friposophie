@@ -15,10 +15,13 @@ function Item(props) {
         <Card
           key={element.id}
           style={{
-            width: "18rem",
+            width: "20rem",
             height: "42,125rem",
-            margin: "0px 10px 20px 0",
+            margin: "0px 20px 20px 0",
             textAlign: "center",
+            position: "relative",
+            border: "1px solid gray",
+            padding: "10px",
           }}
         >
           <Link to={`/description/${element.title}`}>
@@ -28,10 +31,13 @@ function Item(props) {
               variant="top"
               src={element.image}
             />
+            <Card.Text className="cardPriceText">
+              {Number.parseFloat(element.price).toFixed(3)}
+            </Card.Text>
           </Link>
           <Card.Body>
             <Card.Title>{element.title.slice(0, 20)}...</Card.Title>
-            <Card.Text>{element.description.slice(0, 30)}</Card.Text>
+            <Card.Text>{element.description.slice(0, 30)}...</Card.Text>
             <Card.Text></Card.Text>
             <Button
               variant={!element.isInCart ? "success" : "danger"}

@@ -5,7 +5,7 @@ import friposofie from "../Assets/friposofie.png";
 
 function AboutUs() {
   return (
-    <div style={{ width: "80vw", margin: "0 10vw" }}>
+    <div style={{ minWidth: "100vh", padding: "0 10vh" }}>
       <h2>About Us</h2>
       <div>
         <br />
